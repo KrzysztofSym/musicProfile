@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(45deg, #968bda, #74c5a1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 400px;
+    height: 600px;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    animation: scaleUp 1s ease-in-out;
+    transition: .3s;
+}
+
+.container img {
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 14.5rem;
+    object-fit: cover;
+}
+
+.container span {
+    font-size: 2.7rem;;
+    cursor: pointer;
+    user-select: none;
+}
+
+.container span:active {
+    scale: 0.96;
+}
+
+.container span:first-of-type {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    color: lightgray;
+}
+
+.container span:last-of-type {
+    position: absolute;
+    top: 8rem;
+    right: 1.5rem;
+    color: #fff;
+    padding: .5rem;
+    border-radius: 50%;
+    background: #9a8cfb;
+    box-shadow: rgba(50, 50, 93, 0.5) 0px 5px 15px -3px;
+}
+
+.container span:last-of-type:hover {
+    background: #7b70c9;
+}
+.bg {
+    position: relative;
+}
+
+.bg:after {
+    content: "";
+    border-bottom: 90px solid #fff;
+    border-left: 400px solid rgba(0, 0, 0, 0);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.text {
+    padding: 1rem 1.5rem;
+}
+
+h1, h2 {
+    color: #a364f1;
+}
+
+.text h1 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 900;
+}
+
+.text p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 200;
+
+}
+
+.text h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.wrapper {
+    width: 100%;
+    position: relative;
+    padding: 0.5rem 1.5rem 1.5rem;
+  }
+ 
+  .wrapper .carousel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 6px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel.no-transition {
+    scroll-behavior: auto;
+  }
+  .carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+  .carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+  }
+  .carousel :where(.card, .img) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .carousel .card {
+    scroll-snap-align: start;
+    list-style: none;
+    background: #fff;
+    cursor: pointer;
+    padding-bottom: 15px;
+    flex-direction: column;
+    border-radius: 8px;
+  }
+  .carousel .card .img {
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.5) 0px 5px 15px -3px;
+
+  }
+  .card .img img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  @keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+  
+  @media screen and (max-width: 400px) {
+    .wrapper .carousel {
+      grid-auto-columns: 100%;
+    }
+  }
